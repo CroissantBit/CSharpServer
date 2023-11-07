@@ -7,4 +7,13 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Google.Protobuf" Version="3.25.0" />
+      <PackageReference Include="Google.Protobuf.Tools" Version="3.25.0" />
+    </ItemGroup>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <Exec Command="$(NugetPackageRoot)google.protobuf.tools\3.25.0\tools\windows_x64\protoc.exe -I=$(SolutionDir)proto\src\ --csharp_out=$(ProjectDir)lib\generated\ $(SolutionDir)proto\src\*.proto" />
+    </Target>
+
 </Project>
