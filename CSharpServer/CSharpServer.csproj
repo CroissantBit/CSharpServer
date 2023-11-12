@@ -8,12 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="deniszykov.WebSocketListener" Version="4.2.16" />
       <PackageReference Include="Google.Protobuf" Version="3.25.0" />
       <PackageReference Include="Google.Protobuf.Tools" Version="3.25.0" />
     </ItemGroup>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <Exec Command="$(NugetPackageRoot)google.protobuf.tools\3.25.0\tools\windows_x64\protoc.exe -I=$(SolutionDir)proto\src\ --csharp_out=$(ProjectDir)lib\generated\ $(SolutionDir)proto\src\*.proto" />
+        <Exec Command="$(NugetPackageRoot)google.protobuf.tools\3.25.0\tools\windows_x64\protoc.exe -I=$(SolutionDir)proto\src\ --csharp_out=$(ProjectDir)Lib\Generated\ $(SolutionDir)proto\src\*.proto" />
     </Target>
 
 </Project>

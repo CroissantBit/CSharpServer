@@ -1,6 +1,6 @@
 ﻿using Google.Protobuf;
 
-namespace CSharpServer;
+namespace CSharpServer.lib;
 
 public class MessageId
 {
